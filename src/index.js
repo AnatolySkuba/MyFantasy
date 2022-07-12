@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import logoImg from './assets/logo.png';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
+import App from 'components/App';
 import './index.css';
 
 const config = {
