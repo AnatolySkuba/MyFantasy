@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkMyFantasy=self.webpackChunkMyFantasy||[]).push([[460],{3983:function(e,n,r){r.r(n),r.d(n,{default:function(){return a}});var s=r(5048),i=r(9869),t=r(184);function a(){var e=(0,s.v9)(i.L);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)("h1",{children:"Hi my friend"}),e?(0,t.jsx)("p",{children:"Welcome."}):(0,t.jsx)("p",{children:"Please, register or log in."})]})}}}]);
+//# sourceMappingURL=HomePage.4f4ca1a2.chunk.js.map
