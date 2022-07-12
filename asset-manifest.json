@@ -1,23 +1,13 @@
 {
   "files": {
     "main.css": "/MyFantasy/static/css/main.7acaea2f.css",
-    "main.js": "/MyFantasy/static/js/main.db5f65eb.js",
-    "HomePage.js": "/MyFantasy/static/js/HomePage.4f4ca1a2.chunk.js",
-    "LoginPage.js": "/MyFantasy/static/js/LoginPage.0fe91c53.chunk.js",
-    "RegisterPage.js": "/MyFantasy/static/js/RegisterPage.9d03639d.chunk.js",
-    "ContactsPage.js": "/MyFantasy/static/js/ContactsPage.6e8a1240.chunk.js",
-    "static/js/97.b97f7174.chunk.js": "/MyFantasy/static/js/97.b97f7174.chunk.js",
+    "main.js": "/MyFantasy/static/js/main.07d3183d.js",
     "index.html": "/MyFantasy/index.html",
     "main.7acaea2f.css.map": "/MyFantasy/static/css/main.7acaea2f.css.map",
-    "main.db5f65eb.js.map": "/MyFantasy/static/js/main.db5f65eb.js.map",
-    "HomePage.4f4ca1a2.chunk.js.map": "/MyFantasy/static/js/HomePage.4f4ca1a2.chunk.js.map",
-    "LoginPage.0fe91c53.chunk.js.map": "/MyFantasy/static/js/LoginPage.0fe91c53.chunk.js.map",
-    "RegisterPage.9d03639d.chunk.js.map": "/MyFantasy/static/js/RegisterPage.9d03639d.chunk.js.map",
-    "ContactsPage.6e8a1240.chunk.js.map": "/MyFantasy/static/js/ContactsPage.6e8a1240.chunk.js.map",
-    "97.b97f7174.chunk.js.map": "/MyFantasy/static/js/97.b97f7174.chunk.js.map"
+    "main.07d3183d.js.map": "/MyFantasy/static/js/main.07d3183d.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.db5f65eb.js"
+    "static/js/main.07d3183d.js"
   ]
 }
