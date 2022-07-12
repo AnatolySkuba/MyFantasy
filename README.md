@@ -1,49 +1,102 @@
-# Phaser 3 Webpack Project Template
+**Read in other languages: [Русский](README.md), [Polska](README.pl.md).**
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/) that includes hot-reloading for development and production-ready builds.
+# React homework template
 
-This has been updated for Phaser 3.50.0 version and above.
+Этот проект был создан при помощи
+[Create React App](https://github.com/facebook/create-react-app). Для знакомства
+и настройки дополнительных возможностей
+[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Loading images via JavaScript module `import` is also supported, although not recommended.
+## Подготовка нового проекта
 
-## Requirements
+1. Убедись что на компьютере установлена LTS-версия Node.js.
+   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
+2. Склонируй этот репозиторий.
+3. Измени имя папки с `react-homework-template` на имя своего проекта.
+4. Создай новый пустой репозиторий на GitHub.
+5. Открой проект в VSCode, запусти терминал и свяжи проект с GitHub-репозиторием
+   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
+6. Установи базовые зависимости проекта командой `npm install`.
+7. Запусти режим разработки, выполнив команду `npm start`.
+8. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
+   Эта страница будет автоматически перезагружаться после сохранения изменений в
+   файлах проекта.
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+## Деплой
 
-## Available Commands
+Для настройки деплоя проекта необходимо выполнить несколько дополнительных шагов
+по настройке твоего репозитория. Зайди во вкладку `Settings` и в подсекции
+`Actions` выбери выбери пункт `General`.
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+![GitHub actions settings](./assets/actions-config-step-1.png)
 
-## Writing Code
+Пролистай страницу до последней секции, в которой выбери опции как на следующем
+изображении и нажми `Save`. Без этих настроек у сборки будет недостаточно прав
+для автоматизации процесса деплоя.
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development server by running `npm start`.
+![GitHub actions settings](./assets/actions-config-step-2.png)
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder and webpack will automatically recompile and reload your server (available at `http://localhost:8080` by default).
+Продакшн версия проекта будет автоматически проходить линтинг, собираться и
+деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
+ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
+необходимо в файле `package.json` отредактировать поле `homepage`, заменив
+`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
 
-## Customizing the Template
+```json
+"homepage": "https://your_username.github.io/your_repo_name/"
+```
 
-### Babel
+Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
+выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
+это небыло сделано автоматически.
 
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+![GitHub Pages settings](./assets/repo-settings.png)
 
- ```
-"browsers": [
-  ">0.25%",
-  "not ie 11",
-  "not op_mini all"
-]
- ```
+### Статус деплоя
 
-### Webpack
+Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
 
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
+- **Желтый цвет** - выполняется сборка и деплой проекта.
+- **Зеленый цвет** - деплой завершился успешно.
+- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
 
-## Deploying Code
+Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
+выпадающем окне перейти по ссылке `Details`.
 
-After you run the `npm run build` command, your code will be built into a single bundle located at `dist/bundle.min.js` along with any other assets you project depended. 
+![Deployment status](./assets/status.png)
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), you should be able to open `http://mycoolserver.com/index.html` and play your game.
+### Живая страница
+
+Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
+по адресу указанному в отредактированном свойстве `homepage`. Например, вот
+ссылка на живую версию для этого репозитория
+[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
+
+Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
+связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
+всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
+
+### Маршрутизация
+
+Если приложение использует библиотеку `react-router-dom` для маршрутизации,
+необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
+`basename` точное название твоего репозитория. Слеши в начале и конце строки
+обязательны.
+
+```jsx
+<BrowserRouter basename="/your_repo_name/">
+  <App />
+</BrowserRouter>
+```
+
+## Как это работает
+
+![How it works](./assets/how-it-works.png)
+
+1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
+   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
+2. Все файлы репозитория копируются на сервер, где проект инициализируется и
+   проходит линтинг и сборку перед деплоем.
+3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
+   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
+   скрипта будет указано в чем проблема.
