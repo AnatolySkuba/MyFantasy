@@ -15,6 +15,7 @@ const config = {
   },
 };
 const game = new Phaser.Game(config);
+console.log(game);
 function preload() {
   this.load.image('logo', logoImg);
 }
