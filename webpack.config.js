@@ -49,13 +49,13 @@ module.exports = {
 		extensions: [".js", ".ts"],
 	},
 	output: {
-		path: path.resolve(__dirname, "./dist"),
+		path: path.resolve(__dirname, "./docs"),
 		filename: "[name].[chunkhash].js",
 		chunkFilename: "[name].[chunkhash].js",
 		clean: true,
 	},
 	devServer: {
-		static: path.resolve(__dirname, "./dist"),
+		static: path.resolve(__dirname, "./docs"),
 	},
 	plugins: [
 		new CopyWebpackPlugin({
