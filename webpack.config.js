@@ -58,14 +58,14 @@ module.exports = {
 		static: path.resolve(__dirname, "./docs"),
 	},
 	plugins: [
-		// new CopyWebpackPlugin({
-		// 	patterns: [
-		// 		{
-		// 			from: "src/assets/",
-		// 			to: "assets/",
-		// 		},
-		// 	],
-		// }),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: "src/assets/",
+					to: "assets/",
+				},
+			],
+		}),
 		new webpack.DefinePlugin({
 			CANVAS_RENDERER: JSON.stringify(true),
 			WEBGL_RENDERER: JSON.stringify(true),

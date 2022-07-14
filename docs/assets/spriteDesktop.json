@@ -1,0 +1,860 @@
+{
+	"textures": [
+		{
+			"image": "spriteDesktop.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 2715,
+				"h": 2044
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "man.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 96,
+						"y": 0,
+						"w": 535,
+						"h": 1080
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 535,
+						"h": 1080
+					}
+				},
+				{
+					"filename": "background.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 600,
+						"h": 900
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 600,
+						"h": 900
+					},
+					"frame": {
+						"x": 1,
+						"y": 1083,
+						"w": 600,
+						"h": 900
+					}
+				},
+				{
+					"filename": "sunglasses.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 318,
+						"y": 139,
+						"w": 131,
+						"h": 53
+					},
+					"frame": {
+						"x": 1,
+						"y": 1985,
+						"w": 131,
+						"h": 53
+					}
+				},
+				{
+					"filename": "backgroundOverlay.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1,
+						"h": 2
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1,
+						"h": 2
+					},
+					"frame": {
+						"x": 1,
+						"y": 2040,
+						"w": 1,
+						"h": 2
+					}
+				},
+				{
+					"filename": "choker.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 309,
+						"y": 231,
+						"w": 97,
+						"h": 51
+					},
+					"frame": {
+						"x": 134,
+						"y": 1985,
+						"w": 97,
+						"h": 51
+					}
+				},
+				{
+					"filename": "rectangleOverlay.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 476,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 476,
+						"h": 44
+					},
+					"frame": {
+						"x": 233,
+						"y": 1985,
+						"w": 476,
+						"h": 44
+					}
+				},
+				{
+					"filename": "progress0.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 522,
+						"h": 12
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 522,
+						"h": 12
+					},
+					"frame": {
+						"x": 233,
+						"y": 2031,
+						"w": 522,
+						"h": 12
+					}
+				},
+				{
+					"filename": "body.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 140,
+						"y": 27,
+						"w": 467,
+						"h": 1053
+					},
+					"frame": {
+						"x": 538,
+						"y": 1,
+						"w": 467,
+						"h": 1053
+					}
+				},
+				{
+					"filename": "progress1.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 522,
+						"h": 12
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 522,
+						"h": 12
+					},
+					"frame": {
+						"x": 538,
+						"y": 1056,
+						"w": 522,
+						"h": 12
+					}
+				},
+				{
+					"filename": "club.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 600,
+						"h": 900
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 600,
+						"h": 900
+					},
+					"frame": {
+						"x": 603,
+						"y": 1070,
+						"w": 600,
+						"h": 900
+					}
+				},
+				{
+					"filename": "progress2.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 522,
+						"h": 12
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 522,
+						"h": 12
+					},
+					"frame": {
+						"x": 711,
+						"y": 1972,
+						"w": 522,
+						"h": 12
+					}
+				},
+				{
+					"filename": "progress3.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 522,
+						"h": 12
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 522,
+						"h": 12
+					},
+					"frame": {
+						"x": 711,
+						"y": 1986,
+						"w": 522,
+						"h": 12
+					}
+				},
+				{
+					"filename": "nightClub.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 600,
+						"h": 900
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 600,
+						"h": 900
+					},
+					"frame": {
+						"x": 1007,
+						"y": 1,
+						"w": 600,
+						"h": 900
+					}
+				},
+				{
+					"filename": "necklace.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 292,
+						"y": 254,
+						"w": 142,
+						"h": 148
+					},
+					"frame": {
+						"x": 1007,
+						"y": 903,
+						"w": 142,
+						"h": 148
+					}
+				},
+				{
+					"filename": "textBlockMan.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 475,
+						"h": 155
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 475,
+						"h": 155
+					},
+					"frame": {
+						"x": 1151,
+						"y": 903,
+						"w": 475,
+						"h": 155
+					}
+				},
+				{
+					"filename": "bag.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 222,
+						"y": 90,
+						"w": 204,
+						"h": 813
+					},
+					"frame": {
+						"x": 1609,
+						"y": 1,
+						"w": 204,
+						"h": 813
+					}
+				},
+				{
+					"filename": "arrow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 82
+					},
+					"frame": {
+						"x": 1609,
+						"y": 816,
+						"w": 100,
+						"h": 82
+					}
+				},
+				{
+					"filename": "tShirt.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 126,
+						"y": 236,
+						"w": 429,
+						"h": 683
+					},
+					"frame": {
+						"x": 1205,
+						"y": 1060,
+						"w": 429,
+						"h": 683
+					}
+				},
+				{
+					"filename": "hand.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 229,
+						"h": 289
+					},
+					"spriteSourceSize": {
+						"x": 30,
+						"y": 26,
+						"w": 184,
+						"h": 225
+					},
+					"frame": {
+						"x": 1205,
+						"y": 1745,
+						"w": 184,
+						"h": 225
+					}
+				},
+				{
+					"filename": "textBlock.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 470,
+						"h": 155
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 470,
+						"h": 155
+					},
+					"frame": {
+						"x": 1628,
+						"y": 900,
+						"w": 470,
+						"h": 155
+					}
+				},
+				{
+					"filename": "button.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 371,
+						"h": 76
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 371,
+						"h": 76
+					},
+					"frame": {
+						"x": 1711,
+						"y": 816,
+						"w": 371,
+						"h": 76
+					}
+				},
+				{
+					"filename": "rectangleChoker.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 251,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 251,
+						"h": 276
+					},
+					"frame": {
+						"x": 1391,
+						"y": 1745,
+						"w": 251,
+						"h": 276
+					}
+				},
+				{
+					"filename": "dress.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 117,
+						"y": 368,
+						"w": 466,
+						"h": 677
+					},
+					"frame": {
+						"x": 1636,
+						"y": 1057,
+						"w": 466,
+						"h": 677
+					}
+				},
+				{
+					"filename": "rectangleSunglasses.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 251,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 251,
+						"h": 276
+					},
+					"frame": {
+						"x": 1644,
+						"y": 1736,
+						"w": 251,
+						"h": 276
+					}
+				},
+				{
+					"filename": "rectangleBag.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 250,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 250,
+						"h": 276
+					},
+					"frame": {
+						"x": 1897,
+						"y": 1736,
+						"w": 250,
+						"h": 276
+					}
+				},
+				{
+					"filename": "costume.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 105,
+						"y": 257,
+						"w": 453,
+						"h": 657
+					},
+					"frame": {
+						"x": 1815,
+						"y": 1,
+						"w": 453,
+						"h": 657
+					}
+				},
+				{
+					"filename": "animationFlirty.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 279,
+						"y": 27,
+						"w": 172,
+						"h": 233
+					},
+					"frame": {
+						"x": 2084,
+						"y": 660,
+						"w": 172,
+						"h": 233
+					}
+				},
+				{
+					"filename": "bagBlue.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 220,
+						"y": 73,
+						"w": 124,
+						"h": 630
+					},
+					"frame": {
+						"x": 2104,
+						"y": 895,
+						"w": 124,
+						"h": 630
+					}
+				},
+				{
+					"filename": "hair.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 146,
+						"y": 0,
+						"w": 313,
+						"h": 511
+					},
+					"frame": {
+						"x": 2149,
+						"y": 1527,
+						"w": 313,
+						"h": 511
+					}
+				},
+				{
+					"filename": "rectangleBagBlue.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 250,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 250,
+						"h": 276
+					},
+					"frame": {
+						"x": 2230,
+						"y": 895,
+						"w": 250,
+						"h": 276
+					}
+				},
+				{
+					"filename": "animationJoy.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 279,
+						"y": 27,
+						"w": 172,
+						"h": 233
+					},
+					"frame": {
+						"x": 2258,
+						"y": 660,
+						"w": 172,
+						"h": 233
+					}
+				},
+				{
+					"filename": "rectangleClub.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 250,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 250,
+						"h": 276
+					},
+					"frame": {
+						"x": 2230,
+						"y": 1173,
+						"w": 250,
+						"h": 276
+					}
+				},
+				{
+					"filename": "rectangleCostume.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 250,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 250,
+						"h": 276
+					},
+					"frame": {
+						"x": 2464,
+						"y": 1451,
+						"w": 250,
+						"h": 276
+					}
+				},
+				{
+					"filename": "rectangleDress.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 250,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 250,
+						"h": 276
+					},
+					"frame": {
+						"x": 2464,
+						"y": 1729,
+						"w": 250,
+						"h": 276
+					}
+				},
+				{
+					"filename": "rectangleNecklace.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 250,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 250,
+						"h": 276
+					},
+					"frame": {
+						"x": 2270,
+						"y": 1,
+						"w": 250,
+						"h": 276
+					}
+				},
+				{
+					"filename": "rectangleNightClub.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 250,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 250,
+						"h": 276
+					},
+					"frame": {
+						"x": 2270,
+						"y": 279,
+						"w": 250,
+						"h": 276
+					}
+				},
+				{
+					"filename": "rectangleLight.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 250,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 3,
+						"w": 246,
+						"h": 266
+					},
+					"frame": {
+						"x": 2432,
+						"y": 557,
+						"w": 246,
+						"h": 266
+					}
+				},
+				{
+					"filename": "animationSad.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 279,
+						"y": 27,
+						"w": 172,
+						"h": 233
+					},
+					"frame": {
+						"x": 2522,
+						"y": 1,
+						"w": 172,
+						"h": 233
+					}
+				},
+				{
+					"filename": "animationShy.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 279,
+						"y": 27,
+						"w": 172,
+						"h": 233
+					},
+					"frame": {
+						"x": 2522,
+						"y": 236,
+						"w": 172,
+						"h": 233
+					}
+				},
+				{
+					"filename": "animationSurprised.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 726,
+						"h": 1080
+					},
+					"spriteSourceSize": {
+						"x": 279,
+						"y": 27,
+						"w": 172,
+						"h": 233
+					},
+					"frame": {
+						"x": 2482,
+						"y": 825,
+						"w": 172,
+						"h": 233
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:b906c705a4d9cda4a6698c00416a906b:61f5b37793d6886d6705181d329a7603:30ea63760938864646f299da933a6d30$"
+	}
+}
