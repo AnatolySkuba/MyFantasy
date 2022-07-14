@@ -1,5 +1,10 @@
 {
-  "compilerOptions": {
-    "target": "es5"
-  }
+	"compilerOptions": {
+		"target": "es5",
+		"baseUrl": "src", // "./src" works too
+		"outDir": "./docs",
+		"rootDir": "./src",
+		"removeComments": true
+	},
+	"exclude": ["node_modules", "docs"]
 }
