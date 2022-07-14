@@ -11,9 +11,9 @@ export class LoadingScene extends Scene {
 		// 	this.load.atlas("sprite", "../../assets/spriteMobile.png", "../../assets/spriteMobile.json");
 		// }
 		if (window.innerHeight > 768) {
-			this.load.atlas("sprite", "/assets/spriteDesktop.png", "/assets/spriteDesktop.json");
+			this.load.atlas("sprite", "/MyFantasy/assets/spriteDesktop.png", "/MyFantasy/assets/spriteDesktop.json");
 		} else {
-			this.load.atlas("sprite", "/assets/spriteMobile.png", "/assets/spriteMobile.json");
+			this.load.atlas("sprite", "/MyFantasy/assets/spriteMobile.png", "/MyFantasy/assets/spriteMobile.json");
 		}
 	}
 	create(): void {
