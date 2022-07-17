@@ -1,5 +1,5 @@
 import { Game, Types } from "phaser";
-import { LoadingScene, Intro } from "./scenes";
+import { LoadingScene, Main } from "./scenes";
 const gameConfig: Types.Core.GameConfig = {
 	parent: "game",
 	type: Phaser.AUTO,
@@ -29,7 +29,7 @@ const gameConfig: Types.Core.GameConfig = {
 	audio: {
 		disableWebAudio: false,
 	},
-	scene: [LoadingScene, Intro],
+	scene: [LoadingScene, Main],
 };
 
 window.sizeChanged = () => {
