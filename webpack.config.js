@@ -62,7 +62,7 @@ module.exports = {
 			patterns: [
 				{
 					from: "src/assets/",
-					to: "",
+					to: "assets/",
 				},
 			],
 		}),
