@@ -1,5 +1,5 @@
 import { Scene, GameObjects } from "phaser";
-import { Background, Girl, TextBlock, Tooltip, Progress, Options } from "../../classes";
+import { Background, Girl, TextBlock, Tooltip, Progress, Options } from "../classes";
 
 export class Main extends Scene {
 	private background: Background;
