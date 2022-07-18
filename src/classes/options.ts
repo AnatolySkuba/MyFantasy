@@ -8,9 +8,41 @@ export class Options extends State {
 		super(scene);
 	}
 
-	public place(options: string[]): void {
+	public place(): void {
+		let currentIndex2 = 4;
+
+		find2(State.girlOptions, State.girlOptionsCurrent);
+
+		function find(obj, current) {
+			obj.map((option, index) => {
+				if (current[currentIndex2] === "hair") {
+					return;
+				} else if (current[currentIndex2]?.includes(`${option}`)) {
+					State.newgirlOptions = obj[index + 1];
+					currentIndex2 = currentIndex2 + 1;
+					find(State.newgirlOptions, current);
+					return;
+				}
+			});
+		}
+		function find2(obj, current) {
+			obj[2].map((option, index) => {
+				if (current[4].includes(`${option}`)) {
+					State.newgirlOptions = obj[2];
+					find(State.newgirlOptions, current);
+					return;
+				}
+			});
+		}
+		const currentOptions = [];
+		if (State.newgirlOptions.length === 0) {
+			currentOptions.push(`option${State.girlOptions[2][2]}`, `option${State.girlOptions[2][0]}`);
+		} else {
+			State.newgirlOptions.map(option => typeof option === "string" && currentOptions.push(`option${option}`));
+		}
+
 		this.showHandPointer();
-		options.map((option, index) => {
+		currentOptions.map((option, index) => {
 			const textureLight = this.scene.physics.add.sprite(0, 0, "sprite", "optionLight.png").setDebug(false, false, 0),
 				texture = this.scene.physics.add
 					.sprite(0, 0, "sprite", `${option}.${option === "Club" || option === "NightClub" ? "jpg" : "png"}`)
@@ -28,6 +60,7 @@ export class Options extends State {
 					callback: () => {
 						this.removeGirlState();
 						this.clickHandler(texture.frame.name.slice(6, -4), this.getGirlTextures());
+						// console.log(State.girlOptionsCurrent, texture.frame.name.slice(6, -4));
 					},
 				});
 			});

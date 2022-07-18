@@ -10,12 +10,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sebsowter/phaser-webpack.git"
+		"url": "git+https://github.com/AnatoliiSkuba/MyFantasy.git"
 	},
-	"author": "Seb Sowter",
+	"author": "Anatolii Skuba",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/sebsowter/phaser-webpack/issues"
+		"url": "https://github.com/AnatoliiSkuba/MyFantasy/issues"
 	},
 	"babel": {
 		"presets": [

@@ -1,35 +1,31 @@
-import { State } from "./state";
-
-type Text = {
-	fontFamily: string;
-	fontStyle: string;
-	fontWeight: number;
-	fontSize: string;
-	lineHeight: string;
-	align: string;
-	letterSpacing: string;
-	color: string;
-};
+import { State, GirlOptions } from "./state";
 
 export class Girl extends State {
-	textures: string[];
-
-	constructor(scene: Phaser.Scene) {
+	private girlEmotions: string[];
+	constructor(scene: Phaser.Scene, girlOptions: GirlOptions, girlEmotions: string[]) {
 		super(scene);
+		State.girlOptions = girlOptions;
+		State.girlEmotions = girlEmotions;
 	}
 
-	public placeFirst(textures: string[]): void {
-		textures.map(texture => {
+	public placeNew() {
+		this.girlEmotions = State.girlEmotions;
+		State.girlOptionsCurrent.push(
+			`${State.girlOptions[0]}`,
+			this.girlEmotions[0],
+			this.girlEmotions[1],
+			this.girlEmotions[2],
+			`${State.girlOptions[1]}`,
+			`${State.girlOptions[3]}`,
+		);
+		State.girlOptionsCurrent.map(texture => {
 			const girlTexture = this.scene.add.sprite(0, 0, "sprite", `${texture}.png`);
-			if (texture === "animationSurprised" || texture === "animationJoy") {
-				girlTexture.visible = false;
+			State.girlEmotions.includes(texture) && girlTexture.setVisible(false);
+			if (texture === State.girlEmotions[0] || texture === State.girlEmotions[2]) {
 				this.scene.time.addEvent({
-					delay: texture === "animationSurprised" ? 0 : 750,
+					delay: texture === State.girlEmotions[0] ? 0 : 750,
 					callback: () => this.eventAnimation(girlTexture),
 				});
-			}
-			if (texture === "animationShy") {
-				girlTexture.setVisible(false);
 			}
 			this.pushGirlState(girlTexture);
 
@@ -62,6 +58,31 @@ export class Girl extends State {
 		textures.map(texture => {
 			const girlTexture = this.scene.add.sprite(0, 0, "sprite", `${texture}.png`);
 			if (texture === "animationShy" || texture === "animationJoy") {
+				girlTexture.visible = false;
+			}
+			this.pushGirlState(girlTexture);
+			const resize = () => {
+				girlTexture.displayHeight = window.innerHeight * 1.07;
+				girlTexture.scaleX = girlTexture.scaleY;
+				girlTexture.setPosition(window.innerWidth / 2, window.innerHeight - girlTexture.displayHeight / 3.132);
+			};
+			resize();
+			this.scene.scale.on("resize", resize, this);
+		});
+	}
+
+	public placeNewNext(textures: string[], textureOn: string): void {
+		if (["Club", "NightClub"].includes(textureOn)) {
+			return;
+		} else if (State.girlOptionsCurrent.includes(`${State.girlOptions[1]}`)) {
+			State.girlOptionsCurrent.splice(-2, 1, textureOn);
+		} else {
+			State.girlOptionsCurrent.splice(-1, 0, textureOn);
+		}
+
+		State.girlOptionsCurrent.map(texture => {
+			const girlTexture = this.scene.add.sprite(0, 0, "sprite", `${texture}.png`);
+			if (State.girlEmotions.includes(texture)) {
 				girlTexture.visible = false;
 			}
 			this.pushGirlState(girlTexture);
@@ -110,8 +131,8 @@ export class Girl extends State {
 		}, 125);
 	}
 
-	private lastScene(textures: string[], textureOn: string): void {
-		textures.splice(1, 1, "animationSad");
+	public lastScene(textures: string[], textureOn: string): void {
+		textures.splice(1, 2, "animationSad");
 		this.man();
 		textures.map(texture => {
 			const girlTexture = this.scene.add.sprite(0, 0, "sprite", `${texture}.png`);
@@ -121,14 +142,14 @@ export class Girl extends State {
 					this.scene.time.addEvent({
 						delay: 300,
 						callback: () => {
-							girlTexture.visible = true;
+							girlTexture.setVisible(true);
 						},
 					});
 				} else if (textures.includes("Costume") && texture === "animationSad") {
 					this.scene.time.addEvent({
 						delay: 300,
 						callback: () => {
-							girlTexture.visible = true;
+							girlTexture.setVisible(true);
 						},
 					});
 				}
@@ -151,6 +172,8 @@ export class Girl extends State {
 	}
 
 	private moveRight(): void {
+		console.log(163, this.getGirlState());
+
 		this.getGirlState().map(girlTexture => {
 			girlTexture.x = window.innerWidth / 2 - girlTexture.displayWidth / 1.2;
 			this.scene.tweens.add({
@@ -242,3 +265,14 @@ export class Girl extends State {
 		};
 	}
 }
+
+type Text = {
+	fontFamily: string;
+	fontStyle: string;
+	fontWeight: number;
+	fontSize: string;
+	lineHeight: string;
+	align: string;
+	letterSpacing: string;
+	color: string;
+};

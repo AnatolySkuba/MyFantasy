@@ -3,7 +3,10 @@ import { Physics } from "phaser";
 export class State extends Physics.Arcade.Sprite {
 	private static girlState: Phaser.GameObjects.Sprite[] = [];
 	private static girlTextures: string[];
-
+	protected static girlOptions: GirlOptions;
+	protected static girlEmotions: string[];
+	protected static girlOptionsCurrent: string[] = [];
+	protected static newgirlOptions: string[] = [];
 	constructor(scene: Phaser.Scene) {
 		super(scene, 0, 0, "");
 	}
@@ -41,3 +44,5 @@ export class State extends Physics.Arcade.Sprite {
 		return State.girlTextures;
 	}
 }
+
+export type GirlOptions = (string | (string | (string | (string | string[])[])[])[])[];

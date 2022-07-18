@@ -13,7 +13,7 @@ export class Progress extends State {
 	}
 
 	public placeNext(): boolean {
-		const progress = this.scene.add.sprite(0, 0, "sprite", `${this.progressArray[this.getGirlState().length - 4]}.jpg`);
+		const progress = this.scene.add.sprite(0, 0, "sprite", `${this.progressArray[this.getGirlState().length - 5]}.jpg`);
 		this.showProgress(progress);
 		return true;
 	}
@@ -29,7 +29,7 @@ export class Progress extends State {
 		progress.alpha = 0;
 		this.scene.tweens.add({
 			targets: progress,
-			delay: progress.frame.name === "progress0.jpg" ? 1500 : 0,
+			delay: progress.frame.name === this.progressArray[0] ? 1500 : 0,
 			alpha: 1,
 			duration: 200,
 		});
@@ -39,7 +39,7 @@ export class Progress extends State {
 	private hideProgress(progress: Phaser.GameObjects.Sprite): void {
 		this.scene.tweens.add({
 			targets: progress,
-			delay: progress.frame.name === "progress0.jpg" ? 3000 : 1500,
+			delay: progress.frame.name === this.progressArray[0] ? 3000 : 1500,
 			alpha: 0,
 			duration: 200,
 		});

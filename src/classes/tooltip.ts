@@ -30,7 +30,7 @@ export class Tooltip extends State {
 			tooltipText = this.scene.add.text(
 				0,
 				0,
-				`${this.tooltipsArray[this.getGirlState().length - 4]}`,
+				`${this.tooltipsArray[this.getGirlState().length - 5]}`,
 				this.configText(),
 			);
 		this.showTooltip(tooltip, tooltipText);
