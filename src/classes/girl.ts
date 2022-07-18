@@ -1,15 +1,12 @@
 import { State, GirlOptions } from "./state";
 
 export class Girl extends State {
-	private girlEmotions: string[];
-	constructor(scene: Phaser.Scene, girlOptions: GirlOptions, girlEmotions: string[]) {
+	constructor(scene: Phaser.Scene, girlOptions: GirlOptions, private girlEmotions: string[]) {
 		super(scene);
 		State.girlOptions = girlOptions;
-		State.girlEmotions = girlEmotions;
 	}
 
-	public placeNew() {
-		this.girlEmotions = State.girlEmotions;
+	public place() {
 		State.girlOptionsCurrent.push(
 			`${State.girlOptions[0]}`,
 			this.girlEmotions[0],
@@ -18,21 +15,21 @@ export class Girl extends State {
 			`${State.girlOptions[1]}`,
 			`${State.girlOptions[3]}`,
 		);
-		State.girlOptionsCurrent.map(texture => {
-			const girlTexture = this.scene.add.sprite(0, 0, "sprite", `${texture}.png`);
-			State.girlEmotions.includes(texture) && girlTexture.setVisible(false);
-			if (texture === State.girlEmotions[0] || texture === State.girlEmotions[2]) {
+		State.girlOptionsCurrent.map(option => {
+			const girlOptionSprite = this.scene.add.sprite(0, 0, "sprite", `${option}.png`);
+			this.girlEmotions.includes(option) && girlOptionSprite.setVisible(false);
+			if (option === this.girlEmotions[0] || option === this.girlEmotions[2]) {
 				this.scene.time.addEvent({
-					delay: texture === State.girlEmotions[0] ? 0 : 750,
-					callback: () => this.eventAnimation(girlTexture),
+					delay: option === this.girlEmotions[0] ? 0 : 750,
+					callback: () => this.eventAnimation(girlOptionSprite),
 				});
 			}
-			this.pushGirlState(girlTexture);
+			this.pushGirlOptionsSprite(girlOptionSprite);
 
 			const resize = () => {
-				girlTexture.displayHeight = window.innerHeight * 0.95;
-				girlTexture.scaleX = girlTexture.scaleY;
-				girlTexture.setPosition(window.innerWidth / 2, window.innerHeight - girlTexture.displayHeight / 2);
+				girlOptionSprite.displayHeight = window.innerHeight * 0.95;
+				girlOptionSprite.scaleX = girlOptionSprite.scaleY;
+				girlOptionSprite.setPosition(window.innerWidth / 2, window.innerHeight - girlOptionSprite.displayHeight / 2);
 			};
 			resize();
 			this.scene.scale.on("resize", resize, this);
@@ -44,48 +41,15 @@ export class Girl extends State {
 		});
 	}
 
-	public placeNext(textures: string[], textureOn: string): void {
-		if (["Club", "NightClub"].includes(textureOn)) {
-			this.lastScene(textures, textureOn);
-			return;
-		} else if (["Dress", "Costume"].includes(textureOn)) {
-			textures = ["body", "animationShy", "animationJoy", "hair"];
-			textures.splice(-1, 0, `${textureOn}`);
-		} else {
-			textures.splice(-1, 0, `${textureOn}`);
-		}
-
-		textures.map(texture => {
-			const girlTexture = this.scene.add.sprite(0, 0, "sprite", `${texture}.png`);
-			if (texture === "animationShy" || texture === "animationJoy") {
-				girlTexture.visible = false;
-			}
-			this.pushGirlState(girlTexture);
-			const resize = () => {
-				girlTexture.displayHeight = window.innerHeight * 1.07;
-				girlTexture.scaleX = girlTexture.scaleY;
-				girlTexture.setPosition(window.innerWidth / 2, window.innerHeight - girlTexture.displayHeight / 3.132);
-			};
-			resize();
-			this.scene.scale.on("resize", resize, this);
-		});
-	}
-
-	public placeNewNext(textures: string[], textureOn: string): void {
-		if (["Club", "NightClub"].includes(textureOn)) {
-			return;
-		} else if (State.girlOptionsCurrent.includes(`${State.girlOptions[1]}`)) {
-			State.girlOptionsCurrent.splice(-2, 1, textureOn);
-		} else {
-			State.girlOptionsCurrent.splice(-1, 0, textureOn);
-		}
+	public placeNext(textureOn: string): void {
+		State.girlOptionsCurrent.includes(`${State.girlOptions[1]}`)
+			? State.girlOptionsCurrent.splice(-2, 1, textureOn)
+			: State.girlOptionsCurrent.splice(-1, 0, textureOn);
 
 		State.girlOptionsCurrent.map(texture => {
 			const girlTexture = this.scene.add.sprite(0, 0, "sprite", `${texture}.png`);
-			if (State.girlEmotions.includes(texture)) {
-				girlTexture.visible = false;
-			}
-			this.pushGirlState(girlTexture);
+			this.girlEmotions.includes(texture) && (girlTexture.visible = false);
+			this.pushGirlOptionsSprite(girlTexture);
 			const resize = () => {
 				girlTexture.displayHeight = window.innerHeight * 1.07;
 				girlTexture.scaleX = girlTexture.scaleY;
@@ -97,7 +61,7 @@ export class Girl extends State {
 	}
 
 	private moveLower(): void {
-		this.getGirlState().map(girlTexture => {
+		State.girlOptionsSprite.map(girlTexture => {
 			this.scene.tweens.add({
 				targets: girlTexture,
 				displayHeight: window.innerHeight * 1.07,
@@ -110,7 +74,7 @@ export class Girl extends State {
 	}
 
 	private placeLower(): void {
-		this.getGirlState().map(girlTexture => {
+		State.girlOptionsSprite.map(girlTexture => {
 			const resize = () => {
 				girlTexture.displayHeight = window.innerHeight * 1.07;
 				girlTexture.scaleX = girlTexture.scaleY;
@@ -131,21 +95,21 @@ export class Girl extends State {
 		}, 125);
 	}
 
-	public lastScene(textures: string[], textureOn: string): void {
-		textures.splice(1, 2, "animationSad");
+	public lastScene(girlOptionsPrevious: string[]): void {
+		girlOptionsPrevious.splice(1, 2, "animationSad");
 		this.man();
-		textures.map(texture => {
+		girlOptionsPrevious.map(texture => {
 			const girlTexture = this.scene.add.sprite(0, 0, "sprite", `${texture}.png`);
 			if (texture === "animationSad" || texture === "animationJoy") {
 				girlTexture.visible = false;
-				if (textures.includes("Dress") && texture === "animationJoy") {
+				if (girlOptionsPrevious.includes("Dress") && texture === "animationJoy") {
 					this.scene.time.addEvent({
 						delay: 300,
 						callback: () => {
 							girlTexture.setVisible(true);
 						},
 					});
-				} else if (textures.includes("Costume") && texture === "animationSad") {
+				} else if (girlOptionsPrevious.includes("Costume") && texture === "animationSad") {
 					this.scene.time.addEvent({
 						delay: 300,
 						callback: () => {
@@ -154,7 +118,7 @@ export class Girl extends State {
 					});
 				}
 			}
-			this.pushGirlState(girlTexture);
+			this.pushGirlOptionsSprite(girlTexture);
 
 			const resize = () => {
 				girlTexture.displayHeight = window.innerHeight * 0.9;
@@ -168,13 +132,11 @@ export class Girl extends State {
 			this.scene.scale.on("resize", resize, this);
 		});
 		this.moveRight();
-		this.manText(textures);
+		this.manText(girlOptionsPrevious);
 	}
 
 	private moveRight(): void {
-		console.log(163, this.getGirlState());
-
-		this.getGirlState().map(girlTexture => {
+		State.girlOptionsSprite.map(girlTexture => {
 			girlTexture.x = window.innerWidth / 2 - girlTexture.displayWidth / 1.2;
 			this.scene.tweens.add({
 				targets: girlTexture,

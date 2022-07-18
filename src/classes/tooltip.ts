@@ -1,27 +1,14 @@
 import { State } from "./state";
 
-type Text = {
-	fontFamily: string;
-	fontStyle: string;
-	fontWeight: number;
-	fontSize: string;
-	lineHeight: string;
-	align: string;
-	letterSpacing: string;
-	color: string;
-};
-
 export class Tooltip extends State {
-	private tooltipsArray: string[];
-	private tooltips: (Phaser.GameObjects.Sprite | Phaser.GameObjects.Text)[] = [];
-	constructor(scene: Phaser.Scene) {
+	private tooltipsSprite: (Phaser.GameObjects.Sprite | Phaser.GameObjects.Text)[] = [];
+	constructor(scene: Phaser.Scene, private tooltips: string[]) {
 		super(scene);
 	}
 
-	public place(tooltipsArray: string[]): void {
-		this.tooltipsArray = tooltipsArray;
+	public place(): void {
 		const tooltip = this.scene.add.sprite(0, 0, "sprite", "overlay.png"),
-			tooltipText = this.scene.add.text(0, 0, `${tooltipsArray[0]}`, this.configText());
+			tooltipText = this.scene.add.text(0, 0, `${this.tooltips[0]}`, this.configText());
 		this.showTooltip(tooltip, tooltipText);
 	}
 
@@ -30,7 +17,7 @@ export class Tooltip extends State {
 			tooltipText = this.scene.add.text(
 				0,
 				0,
-				`${this.tooltipsArray[this.getGirlState().length - 5]}`,
+				`${this.tooltips[State.girlOptionsSprite.length - 5]}`,
 				this.configText(),
 			);
 		this.showTooltip(tooltip, tooltipText);
@@ -49,19 +36,19 @@ export class Tooltip extends State {
 		this.scene.scale.on("resize", resize, this);
 
 		[tooltip, tooltipText].map(tooltip => {
-			this.tooltips.push(tooltip);
+			this.tooltipsSprite.push(tooltip);
 			tooltip.y = -tooltip.displayHeight;
 			this.scene.tweens.add({
 				targets: tooltip,
 				y: tooltip.displayHeight * (tooltip.type === "Sprite" ? 1 : 1.1),
-				delay: tooltipText.text === "Choose your appearance" ? 3500 : 2000,
+				delay: tooltipText.text === this.tooltips[0] ? 3500 : 2000,
 				duration: 100,
 			});
 		});
 	}
 
 	public hideTooltip(): void {
-		this.tooltips.map(tooltip => {
+		this.tooltipsSprite.map(tooltip => {
 			const hideTooltipCheck = (tooltip: Phaser.GameObjects.Sprite | Phaser.GameObjects.Text) => {
 				if (tooltip.y === tooltip.displayHeight * (tooltip.type === "Sprite" ? 1 : 1.1)) {
 					tooltip.y = tooltip.displayHeight * (tooltip.type === "Sprite" ? 1 : 1.1);
@@ -99,3 +86,14 @@ export class Tooltip extends State {
 		};
 	}
 }
+
+type Text = {
+	fontFamily: string;
+	fontStyle: string;
+	fontWeight: number;
+	fontSize: string;
+	lineHeight: string;
+	align: string;
+	letterSpacing: string;
+	color: string;
+};

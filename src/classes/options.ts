@@ -1,71 +1,46 @@
 import { State } from "./state";
 
 export class Options extends State {
+	private static newGirlOptions: string[] = [];
 	private static handPointer: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
 	private static textures: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody[] = [];
-	private static Tween;
+	private static Tween: Phaser.Tweens.Tween;
 	constructor(scene: Phaser.Scene, private clickHandler: Function) {
 		super(scene);
 	}
 
 	public place(): void {
-		let currentIndex2 = 4;
-
-		find2(State.girlOptions, State.girlOptionsCurrent);
-
-		function find(obj, current) {
-			obj.map((option, index) => {
-				if (current[currentIndex2] === "hair") {
-					return;
-				} else if (current[currentIndex2]?.includes(`${option}`)) {
-					State.newgirlOptions = obj[index + 1];
-					currentIndex2 = currentIndex2 + 1;
-					find(State.newgirlOptions, current);
-					return;
-				}
-			});
-		}
-		function find2(obj, current) {
-			obj[2].map((option, index) => {
-				if (current[4].includes(`${option}`)) {
-					State.newgirlOptions = obj[2];
-					find(State.newgirlOptions, current);
-					return;
-				}
-			});
-		}
 		const currentOptions = [];
-		if (State.newgirlOptions.length === 0) {
-			currentOptions.push(`option${State.girlOptions[2][2]}`, `option${State.girlOptions[2][0]}`);
-		} else {
-			State.newgirlOptions.map(option => typeof option === "string" && currentOptions.push(`option${option}`));
-		}
+		let optionIndex = 4;
+		optionsFind(State.girlOptions, State.girlOptionsCurrent);
+		Options.newGirlOptions.length
+			? Options.newGirlOptions.map(option => typeof option === "string" && currentOptions.push(`option${option}`))
+			: currentOptions.push(`option${State.girlOptions[2][2]}`, `option${State.girlOptions[2][0]}`);
 
 		this.showHandPointer();
 		currentOptions.map((option, index) => {
-			const textureLight = this.scene.physics.add.sprite(0, 0, "sprite", "optionLight.png").setDebug(false, false, 0),
-				texture = this.scene.physics.add
+			const lightSprite = this.scene.physics.add.sprite(0, 0, "sprite", "optionLight.png").setDebug(false, false, 0),
+				optionSprite = this.scene.physics.add
 					.sprite(0, 0, "sprite", `${option}.${option === "Club" || option === "NightClub" ? "jpg" : "png"}`)
 					.setInteractive()
 					.setDebug(false, false, 0);
 
-			this.showTextureLight(texture, textureLight);
+			this.showTextureLight(optionSprite, lightSprite);
 
-			texture.on("pointerdown", () => {
+			optionSprite.on("pointerdown", () => {
 				this.animation("animationJoy");
 				this.hideHandPointer();
-				this.hideOptions(texture);
+				this.hideOptions(optionSprite);
 				this.scene.time.addEvent({
 					delay: 500,
 					callback: () => {
-						this.removeGirlState();
-						this.clickHandler(texture.frame.name.slice(6, -4), this.getGirlTextures());
-						// console.log(State.girlOptionsCurrent, texture.frame.name.slice(6, -4));
+						this.removeGirlOptions();
+						this.clickHandler(optionSprite.frame.name.slice(6, -4), State.girlOptionsPrevious);
 					},
 				});
 			});
 
-			[texture, textureLight].map(e => {
+			[optionSprite, lightSprite].map(e => {
 				const resize = () => {
 					e.displayHeight = window.innerHeight * 0.27;
 					e.scaleX = e.scaleY;
@@ -81,6 +56,29 @@ export class Options extends State {
 			});
 		});
 		this.scene.add.layer().add(Options.handPointer);
+
+		function optionsFind(girlOptions, girlOptionsCurrent: string[]) {
+			girlOptions[2].map((option: string) => {
+				if (girlOptionsCurrent[4].includes(`${option}`)) {
+					Options.newGirlOptions = girlOptions[2];
+					optionsNextFind(Options.newGirlOptions, girlOptionsCurrent);
+					return;
+				}
+			});
+		}
+
+		function optionsNextFind(newGirlOptions, girlOptionsCurrent: string[]) {
+			newGirlOptions.map((option: string, index: number) => {
+				if (girlOptionsCurrent[optionIndex] === "hair") {
+					return;
+				} else if (girlOptionsCurrent[optionIndex]?.includes(`${option}`)) {
+					Options.newGirlOptions = newGirlOptions[index + 1];
+					optionIndex++;
+					optionsNextFind(Options.newGirlOptions, girlOptionsCurrent);
+					return;
+				}
+			});
+		}
 	}
 
 	private showOption(option: Phaser.GameObjects.Sprite): void {
@@ -91,7 +89,7 @@ export class Options extends State {
 			targets: option,
 			displayHeight: window.innerHeight * 0.27,
 			displayWidth: window.innerHeight * 0.236842105,
-			delay: this.getGirlTextures()?.includes("tShirt") ?? (option.frame.name === "optionLight.png" ? 1600 : 1500),
+			delay: State.girlOptionsPrevious?.includes("tShirt") ?? (option.frame.name === "optionLight.png" ? 1600 : 1500),
 			duration: 100,
 		});
 	}
@@ -136,7 +134,7 @@ export class Options extends State {
 			targets: handPointer,
 			y: window.innerHeight - handPointer.displayHeight / 3.5,
 			duration: 150,
-			delay: !this.getGirlTextures() ? 3500 : 2000,
+			delay: !State.girlOptionsPrevious ? 3500 : 2000,
 			onComplete:
 				this.handPointerTweens(handPointer) &&
 				(() => {
@@ -153,7 +151,7 @@ export class Options extends State {
 			targets: handPointer,
 			x: window.innerWidth / 2 + handPointer.displayWidth * 0.9,
 			ease: "Linear",
-			delay: !this.getGirlTextures() ? 3800 : 2300,
+			delay: !State.girlOptionsPrevious ? 3800 : 2300,
 			yoyo: true,
 			duration: 300,
 			repeat: -1,
@@ -200,6 +198,14 @@ export class Options extends State {
 				});
 			} else if (texture.frame.name === "optionLight.png") {
 				texture.setVisible(false);
+			}
+		});
+	}
+
+	private animation(animation: string): void {
+		State.girlOptionsSprite.map(girlTexture => {
+			if (girlTexture.frame.name === `${animation}.png`) {
+				girlTexture.setVisible(true);
 			}
 		});
 	}

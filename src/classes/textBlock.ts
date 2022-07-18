@@ -1,16 +1,5 @@
 import { Physics } from "phaser";
 
-type Text = {
-	fontFamily: string;
-	fontStyle: string;
-	fontWeight: number;
-	fontSize: string;
-	lineHeight: string;
-	align: string;
-	letterSpacing: string;
-	color: string;
-};
-
 export class TextBlock extends Physics.Arcade.Sprite {
 	constructor(scene: Phaser.Scene) {
 		super(scene, 0, 0, "");
@@ -85,3 +74,14 @@ export class TextBlock extends Physics.Arcade.Sprite {
 		};
 	}
 }
+
+type Text = {
+	fontFamily: string;
+	fontStyle: string;
+	fontWeight: number;
+	fontSize: string;
+	lineHeight: string;
+	align: string;
+	letterSpacing: string;
+	color: string;
+};

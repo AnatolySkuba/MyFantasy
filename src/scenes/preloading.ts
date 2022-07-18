@@ -5,11 +5,14 @@ export class LoadingScene extends Scene {
 		super("loading-scene");
 	}
 	preload(): void {
+		////  for mode production  ////
 		if (window.innerHeight > 768) {
 			this.load.atlas("sprite", "/MyFantasy/assets/spriteDesktop.png", "/MyFantasy/assets/spriteDesktop.json");
 		} else {
 			this.load.atlas("sprite", "/MyFantasy/assets/spriteMobile.png", "/MyFantasy/assets/spriteMobile.json");
 		}
+
+		////  for mode development  ////
 		// if (window.innerHeight > 768) {
 		// 	this.load.atlas("sprite", "/assets/spriteDesktop.png", "/assets/spriteDesktop.json");
 		// } else {
