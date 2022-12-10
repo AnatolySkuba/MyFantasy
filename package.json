@@ -10,19 +10,19 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/AnatoliiSkuba/MyFantasy.git"
+		"url": "git+https://github.com/AnatolySkuba/MyFantasy.git"
 	},
 	"author": "Anatolii Skuba",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/AnatoliiSkuba/MyFantasy/issues"
+		"url": "https://github.com/AnatolySkuba/MyFantasy/issues"
 	},
 	"babel": {
 		"presets": [
 			"@babel/preset-env"
 		]
 	},
-	"homepage": "https://AnatoliiSkuba.github.io/MyFantasy/",
+	"homepage": "https://AnatolySkuba.github.io/MyFantasy/",
 	"devDependencies": {
 		"@babel/core": "^7.17.5",
 		"@babel/preset-env": "^7.16.11",
